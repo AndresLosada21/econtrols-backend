@@ -1,0 +1,96 @@
+{
+  "kind": "singleType",
+  "collectionName": "footer_settings",
+  "info": {
+    "singularName": "footer-setting",
+    "pluralName": "footer-settings",
+    "displayName": "Footer Settings",
+    "description": "Configurações completas do rodapé do site"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo do footer (pode ser diferente do navbar)"
+    },
+    "logoAlt": {
+      "type": "string",
+      "default": "e-Controls Logo",
+      "maxLength": 100,
+      "description": "Texto alternativo do logo"
+    },
+    "siteName": {
+      "type": "string",
+      "default": "e-Controls",
+      "maxLength": 100,
+      "description": "Nome do site/grupo"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição curta do grupo para o footer"
+    },
+    "institutionName": {
+      "type": "string",
+      "default": "Universidade Federal do Amazonas (UFAM)",
+      "maxLength": 200,
+      "description": "Nome da instituição"
+    },
+    "departmentName": {
+      "type": "string",
+      "default": "Departamento de Eletricidade - Faculdade de Tecnologia",
+      "maxLength": 200,
+      "description": "Nome do departamento"
+    },
+    "contactInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.contact-info",
+      "description": "Informações de contato"
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-link",
+      "description": "Links para redes sociais"
+    },
+    "menuColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.footer-menu-column",
+      "description": "Colunas de links do footer"
+    },
+    "copyrightText": {
+      "type": "string",
+      "default": "e-Controls Research Group. Todos os direitos reservados.",
+      "maxLength": 300,
+      "description": "Texto de copyright (ano é adicionado automaticamente)"
+    },
+    "bottomText": {
+      "type": "string",
+      "default": "Desenvolvido com ❤️ na Amazônia.",
+      "maxLength": 200,
+      "description": "Texto adicional no rodapé"
+    },
+    "showNewsletter": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exibir formulário de newsletter"
+    },
+    "newsletterTitle": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Título da seção de newsletter"
+    },
+    "newsletterDescription": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Descrição da newsletter"
+    }
+  }
+}

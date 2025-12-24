@@ -692,10 +692,83 @@ export interface ApiFacultyMemberFacultyMember extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterSettingFooterSetting extends Schema.SingleType {
+  collectionName: 'footer_settings';
+  info: {
+    description: 'Configura\u00E7\u00F5es completas do rodap\u00E9 do site';
+    displayName: 'Footer Settings';
+    pluralName: 'footer-settings';
+    singularName: 'footer-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bottomText: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }> &
+      Attribute.DefaultTo<'Desenvolvido com \u2764\uFE0F na Amaz\u00F4nia.'>;
+    contactInfo: Attribute.Component<'layout.contact-info'>;
+    copyrightText: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }> &
+      Attribute.DefaultTo<'e-Controls Research Group. Todos os direitos reservados.'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer-setting.footer-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    departmentName: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }> &
+      Attribute.DefaultTo<'Departamento de Eletricidade - Faculdade de Tecnologia'>;
+    description: Attribute.Text;
+    institutionName: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }> &
+      Attribute.DefaultTo<'Universidade Federal do Amazonas (UFAM)'>;
+    logo: Attribute.Media<'images'>;
+    logoAlt: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'e-Controls Logo'>;
+    menuColumns: Attribute.Component<'layout.footer-menu-column', true>;
+    newsletterDescription: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    newsletterTitle: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    showNewsletter: Attribute.Boolean & Attribute.DefaultTo<false>;
+    siteName: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'e-Controls'>;
+    socialLinks: Attribute.Component<'shared.social-link', true>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::footer-setting.footer-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
   collectionName: 'homepage_setting';
   info: {
-    description: 'Configura\u00E7\u00F5es e conte\u00FAdo da homepage conforme blueprint Se\u00E7\u00E3o 1';
+    description: 'Configura\u00E7\u00F5es e conte\u00FAdo espec\u00EDfico da homepage (Hero, M\u00E9tricas, etc.)';
     displayName: 'Homepage Settings';
     pluralName: 'homepage-settings';
     singularName: 'homepage-setting';
@@ -704,7 +777,6 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     draftAndPublish: false;
   };
   attributes: {
-    address: Attribute.RichText;
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::homepage-setting.homepage-setting',
@@ -715,7 +787,7 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     defaultSeo: Attribute.Component<'shared.seo'>;
     department: Attribute.String &
       Attribute.DefaultTo<'Departamento de Eletricidade - Faculdade de Tecnologia'>;
-    foundingYear: Attribute.String & Attribute.DefaultTo<'2015-2017'>;
+    foundingYear: Attribute.String & Attribute.DefaultTo<'2015'>;
     groupName: Attribute.String &
       Attribute.DefaultTo<'e-Controls - Grupo de Estudos em Controle de Sistemas'>;
     institutionalAffiliation: Attribute.String &
@@ -724,18 +796,58 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     keyMetrics: Attribute.Component<'shared.key-metric', true>;
     location: Attribute.String &
       Attribute.DefaultTo<'Manaus, Amazonas, Brasil'>;
-    mainContactEmail: Attribute.Email &
-      Attribute.DefaultTo<'iurybessa@ufam.edu.br'>;
-    mainMenu: Attribute.Component<'layout.menu-link', true>;
     partnerLogos: Attribute.Media<'images', true>;
-    phone: Attribute.String;
     showOnHomepage: Attribute.JSON;
-    socialLinks: Attribute.Component<'shared.social-link', true>;
     tagline: Attribute.String &
       Attribute.DefaultTo<'Excel\u00EAncia em Controle de Sistemas na Amaz\u00F4nia'>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::homepage-setting.homepage-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNavbarSettingNavbarSetting extends Schema.SingleType {
+  collectionName: 'navbar_settings';
+  info: {
+    description: 'Configura\u00E7\u00F5es do menu de navega\u00E7\u00E3o principal (Header)';
+    displayName: 'Navbar Settings';
+    pluralName: 'navbar-settings';
+    singularName: 'navbar-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::navbar-setting.navbar-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    ctaButton: Attribute.Component<'layout.cta-button'>;
+    isSticky: Attribute.Boolean & Attribute.DefaultTo<true>;
+    logo: Attribute.Media<'images'>;
+    logoAlt: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'e-Controls Logo'>;
+    mainMenu: Attribute.Component<'layout.menu-link', true>;
+    showSearch: Attribute.Boolean & Attribute.DefaultTo<false>;
+    siteName: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'e-Controls'>;
+    transparentOnTop: Attribute.Boolean & Attribute.DefaultTo<true>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::navbar-setting.navbar-setting',
       'oneToOne',
       'admin::user'
     > &
@@ -1848,7 +1960,9 @@ declare module '@strapi/types' {
       'api::collaborator.collaborator': ApiCollaboratorCollaborator;
       'api::dashboard-metric.dashboard-metric': ApiDashboardMetricDashboardMetric;
       'api::faculty-member.faculty-member': ApiFacultyMemberFacultyMember;
+      'api::footer-setting.footer-setting': ApiFooterSettingFooterSetting;
       'api::homepage-setting.homepage-setting': ApiHomepageSettingHomepageSetting;
+      'api::navbar-setting.navbar-setting': ApiNavbarSettingNavbarSetting;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::partner.partner': ApiPartnerPartner;
       'api::project.project': ApiProjectProject;

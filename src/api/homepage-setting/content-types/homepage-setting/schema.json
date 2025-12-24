@@ -5,104 +5,63 @@
     "singularName": "homepage-setting",
     "pluralName": "homepage-settings",
     "displayName": "Homepage Settings",
-    "description": "Configurações e conteúdo da homepage conforme blueprint Seção 1"
+    "description": "Configurações e conteúdo específico da homepage (Hero, Métricas, etc.)"
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "siteLogo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images"],
-      "description": "Logo do site para Header e Footer"
-    },
-    "siteLogoAlt": {
-      "type": "string",
-      "default": "e-Controls Logo",
-      "description": "Texto alternativo do logo"
-    },
-    "footerDescription": {
-      "type": "richtext",
-      "description": "Descrição exibida no footer do site"
-    },
     "groupName": {
       "type": "string",
       "default": "e-Controls - Grupo de Estudos em Controle de Sistemas",
-      "description": "Nome completo do grupo - Seção 1.1"
+      "description": "Nome completo do grupo - Seção Hero"
     },
     "tagline": {
       "type": "string",
       "default": "Excelência em Controle de Sistemas na Amazônia",
-      "description": "Tagline - Seção 1.1"
+      "description": "Tagline principal - Seção Hero"
     },
     "institutionalAffiliation": {
       "type": "string",
       "default": "Universidade Federal do Amazonas (UFAM)",
-      "description": "Afiliação institucional - Seção 1.1"
+      "description": "Afiliação institucional"
     },
     "department": {
       "type": "string",
       "default": "Departamento de Eletricidade - Faculdade de Tecnologia",
-      "description": "Departamento - Seção 1.1"
+      "description": "Departamento"
     },
     "location": {
       "type": "string",
       "default": "Manaus, Amazonas, Brasil",
-      "description": "Localização - Seção 1.1"
+      "description": "Localização"
     },
     "introductionText": {
       "type": "richtext",
-      "description": "Parágrafo introdutório (3-4 sentenças) sobre o grupo - Seção 1.2"
+      "description": "Parágrafo introdutório (3-4 sentenças) sobre o grupo"
     },
     "foundingYear": {
       "type": "string",
-      "default": "2015-2017",
-      "description": "Ano de fundação/consolidação - Seção 1.2"
+      "default": "2015",
+      "description": "Ano de fundação"
     },
     "keyMetrics": {
       "type": "component",
       "repeatable": true,
       "component": "shared.key-metric",
-      "description": "Métricas-chave da homepage - Seção 1.3"
-    },
-    "mainContactEmail": {
-      "type": "email",
-      "default": "iurybessa@ufam.edu.br",
-      "description": "E-mail principal - Seção 1.7"
-    },
-    "phone": {
-      "type": "string",
-      "description": "Telefone de contato"
-    },
-    "address": {
-      "type": "richtext",
-      "description": "Endereço completo com formatação"
-    },
-    "socialLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.social-link",
-      "description": "Links para redes sociais do grupo"
+      "description": "Métricas-chave exibidas na homepage"
     },
     "partnerLogos": {
       "type": "media",
       "multiple": true,
       "required": false,
       "allowedTypes": ["images"],
-      "description": "Logos das principais universidades parceiras - Seção 1.5"
+      "description": "Logos das principais universidades parceiras"
     },
     "showOnHomepage": {
       "type": "json",
-      "description": "Configuração de quais seções exibir na homepage. Ex: {showNews: true, showMetrics: true}"
-    },
-    "mainMenu": {
-      "type": "component",
-      "repeatable": true,
-      "component": "layout.menu-link",
-      "description": "Links do menu principal de navegação"
+      "description": "Configuração de quais seções exibir na homepage"
     },
     "defaultSeo": {
       "type": "component",

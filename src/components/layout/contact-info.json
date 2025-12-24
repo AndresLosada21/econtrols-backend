@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_layout_contact_infos",
+  "info": {
+    "displayName": "Contact Info",
+    "description": "Informações de contato para o footer"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "description": "E-mail principal de contato"
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Telefone de contato"
+    },
+    "address": {
+      "type": "text",
+      "description": "Endereço completo (pode ter múltiplas linhas)"
+    },
+    "city": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Cidade"
+    },
+    "state": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Estado/Província"
+    },
+    "postalCode": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "CEP/Código Postal"
+    },
+    "country": {
+      "type": "string",
+      "maxLength": 100,
+      "default": "Brasil",
+      "description": "País"
+    },
+    "mapUrl": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "URL do Google Maps ou similar"
+    }
+  }
+}

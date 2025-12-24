@@ -118,6 +118,88 @@ export interface FacultyAwardDistinction extends Schema.Component {
   };
 }
 
+export interface LayoutContactInfo extends Schema.Component {
+  collectionName: 'components_layout_contact_infos';
+  info: {
+    description: 'Informa\u00E7\u00F5es de contato para o footer';
+    displayName: 'Contact Info';
+  };
+  attributes: {
+    address: Attribute.Text;
+    city: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    country: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'Brasil'>;
+    email: Attribute.Email & Attribute.Required;
+    mapUrl: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    phone: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+    postalCode: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    state: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+  };
+}
+
+export interface LayoutCtaButton extends Schema.Component {
+  collectionName: 'components_layout_cta_buttons';
+  info: {
+    description: 'Bot\u00E3o de call-to-action para navbar e outras se\u00E7\u00F5es';
+    displayName: 'CTA Button';
+  };
+  attributes: {
+    isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
+    isVisible: Attribute.Boolean & Attribute.DefaultTo<true>;
+    label: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }> &
+      Attribute.DefaultTo<'contato'>;
+    url: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }> &
+      Attribute.DefaultTo<'#contact'>;
+    variant: Attribute.Enumeration<
+      ['primary', 'secondary', 'outline', 'ghost']
+    > &
+      Attribute.DefaultTo<'outline'>;
+  };
+}
+
+export interface LayoutFooterMenuColumn extends Schema.Component {
+  collectionName: 'components_layout_footer_menu_columns';
+  info: {
+    description: 'Coluna de links para o footer';
+    displayName: 'Footer Menu Column';
+  };
+  attributes: {
+    links: Attribute.Component<'layout.menu-link', true>;
+    order: Attribute.Integer & Attribute.DefaultTo<0>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 50;
+      }>;
+  };
+}
+
 export interface LayoutMenuLink extends Schema.Component {
   collectionName: 'components_layout_menu_links';
   info: {
@@ -350,6 +432,9 @@ declare module '@strapi/types' {
       'faculty.academic-formation': FacultyAcademicFormation;
       'faculty.advisee': FacultyAdvisee;
       'faculty.award-distinction': FacultyAwardDistinction;
+      'layout.contact-info': LayoutContactInfo;
+      'layout.cta-button': LayoutCtaButton;
+      'layout.footer-menu-column': LayoutFooterMenuColumn;
       'layout.menu-link': LayoutMenuLink;
       'research.subtopic': ResearchSubtopic;
       'shared.funded-project': SharedFundedProject;

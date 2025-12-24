@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_layout_cta_buttons",
+  "info": {
+    "displayName": "CTA Button",
+    "description": "Botão de call-to-action para navbar e outras seções"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "default": "contato",
+      "description": "Texto do botão"
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "default": "#contact",
+      "description": "URL de destino"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false,
+      "description": "Abre em nova aba"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "outline", "ghost"],
+      "default": "outline",
+      "description": "Estilo visual do botão"
+    },
+    "isVisible": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir ou ocultar o botão"
+    }
+  }
+}

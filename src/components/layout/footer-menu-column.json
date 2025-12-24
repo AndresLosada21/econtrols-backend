@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_footer_menu_columns",
+  "info": {
+    "displayName": "Footer Menu Column",
+    "description": "Coluna de links para o footer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "description": "Título da coluna (ex: 'Menu', 'Links Úteis')"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.menu-link",
+      "description": "Links desta coluna"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição da coluna"
+    }
+  }
+}

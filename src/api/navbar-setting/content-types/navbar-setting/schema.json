@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbar_settings",
+  "info": {
+    "singularName": "navbar-setting",
+    "pluralName": "navbar-settings",
+    "displayName": "Navbar Settings",
+    "description": "Configurações do menu de navegação principal (Header)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo principal do site (substitui o texto quando presente)"
+    },
+    "logoAlt": {
+      "type": "string",
+      "default": "e-Controls Logo",
+      "maxLength": 100,
+      "description": "Texto alternativo do logo para acessibilidade"
+    },
+    "siteName": {
+      "type": "string",
+      "default": "e-Controls",
+      "maxLength": 100,
+      "description": "Nome do site (exibido quando não há logo)"
+    },
+    "mainMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.menu-link",
+      "description": "Links do menu principal de navegação"
+    },
+    "ctaButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.cta-button",
+      "description": "Botão de call-to-action (ex: 'Contato')"
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exibir campo de busca no navbar"
+    },
+    "isSticky": {
+      "type": "boolean",
+      "default": true,
+      "description": "Navbar fixa no topo ao rolar"
+    },
+    "transparentOnTop": {
+      "type": "boolean",
+      "default": true,
+      "description": "Navbar transparente quando no topo da página"
+    }
+  }
+}
