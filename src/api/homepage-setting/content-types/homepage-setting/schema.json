@@ -12,6 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "siteLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo do site para Header e Footer"
+    },
+    "siteLogoAlt": {
+      "type": "string",
+      "default": "e-Controls Logo",
+      "description": "Texto alternativo do logo"
+    },
+    "footerDescription": {
+      "type": "richtext",
+      "description": "Descrição exibida no footer do site"
+    },
     "groupName": {
       "type": "string",
       "default": "e-Controls - Grupo de Estudos em Controle de Sistemas",
