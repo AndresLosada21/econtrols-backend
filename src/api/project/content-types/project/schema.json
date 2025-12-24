@@ -1,0 +1,180 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": "Projetos de pesquisa do e-Controls (Current e Finished) conforme blueprint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300,
+      "description": "Título completo do projeto"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["Em Andamento", "Concluído", "Pausado", "Planejado"],
+      "required": true,
+      "default": "Em Andamento",
+      "description": "Status do projeto (determina se aparece em Current ou Finished)"
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 500,
+      "description": "Resumo do projeto"
+    },
+    "objectives": {
+      "type": "richtext",
+      "description": "Objetivos principais - Seção estrutura padrão blueprint 4.1 e 4.2"
+    },
+    "methodology": {
+      "type": "richtext",
+      "description": "Metodologia - Seção estrutura padrão"
+    },
+    "expectedResults": {
+      "type": "richtext",
+      "description": "Resultados esperados - Seção estrutura padrão"
+    },
+    "achievedResults": {
+      "type": "richtext",
+      "description": "Principais resultados alcançados - Para projetos concluídos"
+    },
+    "impactLegacy": {
+      "type": "richtext",
+      "description": "Impacto/legado - Para projetos concluídos"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem destacada do projeto"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "videos"],
+      "description": "Galeria de imagens/vídeos"
+    },
+    "fundingAgency": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Financiador (CNPq, FAPEAM, Instituto Serrapilheira, etc)"
+    },
+    "fundingAmount": {
+      "type": "decimal",
+      "description": "Valor do financiamento"
+    },
+    "processNumber": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Número do processo/edital"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true,
+      "description": "Período - início"
+    },
+    "endDate": {
+      "type": "date",
+      "description": "Período - fim (vazio se em andamento)"
+    },
+    "duration": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Duração prevista (ex: '24 meses')"
+    },
+    "keywords": {
+      "type": "json",
+      "description": "Array de palavras-chave"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "description": "Website do projeto"
+    },
+    "repositoryUrl": {
+      "type": "string",
+      "description": "Repositório de código (GitHub, GitLab, etc)"
+    },
+    "currentStatus": {
+      "type": "text",
+      "description": "Status atual detalhado - Para projetos em andamento"
+    },
+    "progressPercentage": {
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "default": 0,
+      "description": "Percentual de conclusão (0-100%)"
+    },
+    "showOnHomepage": {
+      "type": "boolean",
+      "default": false,
+      "description": "Destacar na homepage"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    },
+    "researchLine": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::research-line.research-line",
+      "inversedBy": "relatedProjects",
+      "description": "Linha de pesquisa relacionada - Seção estrutura padrão"
+    },
+    "coordinator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faculty-member.faculty-member",
+      "inversedBy": "coordinatedProjects",
+      "description": "Coordenador - Seção estrutura padrão"
+    },
+    "teamMembers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::faculty-member.faculty-member",
+      "mappedBy": "participatingProjects",
+      "description": "Pesquisadores envolvidos - Seção estrutura padrão"
+    },
+    "relatedPublications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::publication.publication",
+      "mappedBy": "relatedProject",
+      "description": "Publicações geradas/relacionadas - Seção estrutura padrão"
+    },
+    "relatedPartners": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::partner.partner",
+      "inversedBy": "projects",
+      "description": "Parceiros envolvidos (universidades, empresas)"
+    },
+    "relatedNews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-item.news-item",
+      "mappedBy": "relatedProjects"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "Configurações de SEO específicas deste projeto"
+    }
+  }
+}

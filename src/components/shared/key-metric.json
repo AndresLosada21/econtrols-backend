@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_key_metrics",
+  "info": {
+    "displayName": "Key Metric",
+    "description": "Métrica chave para exibição na homepage (ex: total de publicações, citações)"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "description": "Rótulo da métrica (ex: 'Publicações', 'Citações')"
+    },
+    "value": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "description": "Valor da métrica (pode ser número ou texto, ex: '448', '1200+')"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Nome do ícone (se usar biblioteca de ícones)"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    }
+  }
+}

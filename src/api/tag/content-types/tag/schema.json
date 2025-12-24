@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag",
+    "description": "Sistema de tags/taxonomia para organização e filtragem de conteúdo conforme blueprint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 100,
+      "description": "Nome da tag (ex: 'teoria-controle', 'verificacao-formal')"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "displayName": {
+      "type": "string",
+      "maxLength": 150,
+      "description": "Nome para exibição (ex: 'Teoria de Controle')"
+    },
+    "tagType": {
+      "type": "enumeration",
+      "enum": [
+        "Linha de Pesquisa",
+        "Tipo de Conteúdo",
+        "Status",
+        "Audiência",
+        "Geral"
+      ],
+      "required": true,
+      "description": "Tipo de tag conforme blueprint - Sistema de Tags/Taxonomia"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição da tag"
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Código de cor hexadecimal (para visualização)"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Nome do ícone (se usar biblioteca de ícones)"
+    },
+    "parentTag": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tag.tag",
+      "description": "Tag pai (para hierarquia de tags)"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Tag ativa"
+    },
+    "usageCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Número de vezes que a tag é usada (calculado automaticamente)"
+    }
+  }
+}

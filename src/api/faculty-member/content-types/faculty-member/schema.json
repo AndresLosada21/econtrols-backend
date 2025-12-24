@@ -1,0 +1,217 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faculty_members",
+  "info": {
+    "singularName": "faculty-member",
+    "pluralName": "faculty-members",
+    "displayName": "Faculty Member",
+    "description": "Faculty members (corpo docente) do grupo e-Controls conforme blueprint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome completo do membro (ex: Iury Valente de Bessa)"
+    },
+    "displayName": {
+      "type": "string",
+      "maxLength": 150,
+      "description": "Nome de exibição (ex: Prof. Dr. Iury Bessa)"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "fullName"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Foto oficial do membro"
+    },
+    "academicTitle": {
+      "type": "enumeration",
+      "enum": ["Graduado", "Especialista", "Mestre", "Doutor", "Pós-Doutor"],
+      "description": "Título acadêmico mais alto"
+    },
+    "position": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Cargo (ex: Professor Adjunto, Líder do e-Controls)"
+    },
+    "department": {
+      "type": "string",
+      "default": "Departamento de Eletricidade, FT/UFAM",
+      "description": "Departamento/Unidade"
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": ["Líder", "Co-líder", "Pesquisador Permanente", "Pesquisador Associado", "Colaborador"],
+      "required": true,
+      "description": "Papel no grupo e-Controls"
+    },
+    "email": {
+      "type": "email",
+      "required": false,
+      "description": "E-mail institucional"
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "Telefone de contato"
+    },
+    "biography": {
+      "type": "richtext",
+      "description": "Biografia acadêmica e profissional (2-3 parágrafos) - Seção 2 do blueprint"
+    },
+    "academicFormation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faculty.academic-formation",
+      "description": "Formação acadêmica - Seção 3 do blueprint"
+    },
+    "specializationAreas": {
+      "type": "json",
+      "description": "Array de áreas de especialização - Seção 4 do blueprint. Ex: ['Teoria de controle', 'Verificação formal de software']"
+    },
+    "awardsDistinctions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faculty.award-distinction",
+      "description": "Prêmios e distinções - Seção 5 do blueprint"
+    },
+    "currentGraduateAdvisees": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faculty.advisee",
+      "description": "Orientandos em andamento - Seção 8 do blueprint"
+    },
+    "completedAdvisees": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faculty.advisee",
+      "description": "Orientações concluídas - Seção 8 do blueprint"
+    },
+    "teachingGraduate": {
+      "type": "json",
+      "description": "Disciplinas ministradas na graduação - Seção 10. Array de strings"
+    },
+    "teachingPostgraduate": {
+      "type": "json",
+      "description": "Disciplinas ministradas na pós-graduação - Seção 10. Array de strings"
+    },
+    "lattesUrl": {
+      "type": "string",
+      "description": "URL do Currículo Lattes"
+    },
+    "googleScholarUrl": {
+      "type": "string",
+      "description": "URL do Google Scholar"
+    },
+    "researchGateUrl": {
+      "type": "string",
+      "description": "URL do ResearchGate"
+    },
+    "orcidUrl": {
+      "type": "string",
+      "description": "URL do ORCID"
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "description": "URL do LinkedIn"
+    },
+    "personalWebsite": {
+      "type": "string",
+      "description": "Site pessoal"
+    },
+    "googleScholarCitations": {
+      "type": "integer",
+      "default": 0,
+      "description": "Total de citações no Google Scholar"
+    },
+    "hIndex": {
+      "type": "integer",
+      "default": 0,
+      "description": "Índice H do pesquisador"
+    },
+    "totalPublications": {
+      "type": "integer",
+      "default": 0,
+      "description": "Total de publicações"
+    },
+    "institutionalPositions": {
+      "type": "json",
+      "description": "Posições institucionais atuais. Ex: ['Chefe do Departamento', 'Vice-Coordenador do PPGEE']"
+    },
+    "internationalCollaborations": {
+      "type": "richtext",
+      "description": "Texto sobre colaborações internacionais - Seção 11 do blueprint"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indica se o membro está ativo no grupo"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição na página People"
+    },
+    "showOnHomepage": {
+      "type": "boolean",
+      "default": false,
+      "description": "Exibir na homepage"
+    },
+    "researchLines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-line.research-line",
+      "inversedBy": "facultyMembers",
+      "description": "Linhas de pesquisa ativas - Seção 6 do blueprint"
+    },
+    "coordinatedProjects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "coordinator",
+      "description": "Projetos que coordena - Seção 7 do blueprint"
+    },
+    "participatingProjects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "teamMembers",
+      "description": "Projetos que participa - Seção 7 do blueprint"
+    },
+    "publications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::publication.publication",
+      "inversedBy": "authors",
+      "description": "Publicações - Seção 9 do blueprint"
+    },
+    "newsAsAuthor": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-item.news-item",
+      "mappedBy": "author"
+    },
+    "newsAsMentioned": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-item.news-item",
+      "inversedBy": "relatedMembers"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "Configurações de SEO específicas deste membro"
+    }
+  }
+}

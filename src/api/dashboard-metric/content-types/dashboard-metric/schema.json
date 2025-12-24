@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dashboard_metrics",
+  "info": {
+    "singularName": "dashboard-metric",
+    "pluralName": "dashboard-metrics",
+    "displayName": "Dashboard Metric",
+    "description": "VERSÃO 2 - STANDBY: Métricas para dashboard interativo conforme blueprint Seção 8"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metricName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome da métrica (ex: 'Total Publications', 'H-Index')"
+    },
+    "metricType": {
+      "type": "enumeration",
+      "enum": [
+        "Overview",
+        "Publication Trends",
+        "Research Impact",
+        "Team Composition",
+        "Geographic Collaboration",
+        "Project Portfolio",
+        "Student Training",
+        "Software Impact"
+      ],
+      "required": true,
+      "description": "Categoria da métrica conforme Seções 1-8 do blueprint Dashboard"
+    },
+    "value": {
+      "type": "decimal",
+      "description": "Valor numérico da métrica"
+    },
+    "stringValue": {
+      "type": "string",
+      "description": "Valor textual (se aplicável)"
+    },
+    "jsonData": {
+      "type": "json",
+      "description": "Dados estruturados para gráficos (arrays, objetos)"
+    },
+    "chartType": {
+      "type": "enumeration",
+      "enum": [
+        "Counter",
+        "Line Chart",
+        "Bar Chart",
+        "Pie Chart",
+        "Heatmap",
+        "Map",
+        "Gantt",
+        "Network Graph",
+        "Table"
+      ],
+      "description": "Tipo de visualização"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição da métrica"
+    },
+    "lastUpdated": {
+      "type": "datetime",
+      "description": "Última atualização dos dados"
+    },
+    "updateFrequency": {
+      "type": "enumeration",
+      "enum": ["Real-time", "Daily", "Weekly", "Monthly", "Manual"],
+      "default": "Manual",
+      "description": "Frequência de atualização"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Métrica ativa no dashboard"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    },
+    "dataSource": {
+      "type": "string",
+      "description": "Fonte dos dados (Google Scholar API, Scopus, manual, etc)"
+    }
+  }
+}

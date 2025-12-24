@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_software_developers",
+  "info": {
+    "displayName": "Developer",
+    "description": "Desenvolvedor ou instituição envolvida no desenvolvimento do software"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome do desenvolvedor ou instituição"
+    },
+    "role": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Papel no desenvolvimento (ex: Lead Developer, Contributor)"
+    },
+    "affiliation": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Afiliação institucional (ex: University of Manchester)"
+    }
+  }
+}

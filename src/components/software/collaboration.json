@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_software_collaborations",
+  "info": {
+    "displayName": "Collaboration",
+    "description": "Instituição colaboradora no desenvolvimento do software"
+  },
+  "options": {},
+  "attributes": {
+    "institutionName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome da instituição colaboradora"
+    },
+    "country": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "País da instituição"
+    },
+    "collaborationType": {
+      "type": "enumeration",
+      "enum": ["Co-development", "Funding", "Testing", "Support"],
+      "description": "Tipo de colaboração"
+    }
+  }
+}

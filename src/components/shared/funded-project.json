@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_funded_projects",
+  "info": {
+    "displayName": "Funded Project",
+    "description": "Projeto financiado por agência de fomento"
+  },
+  "options": {},
+  "attributes": {
+    "projectTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300,
+      "description": "Título do projeto financiado"
+    },
+    "amount": {
+      "type": "decimal",
+      "description": "Valor do financiamento (em reais)"
+    },
+    "year": {
+      "type": "integer",
+      "min": 2000,
+      "max": 2100,
+      "description": "Ano do financiamento"
+    },
+    "grantNumber": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Número do processo/edital"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição breve do projeto financiado"
+    }
+  }
+}

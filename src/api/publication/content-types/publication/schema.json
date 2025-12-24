@@ -1,0 +1,248 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publications",
+  "info": {
+    "singularName": "publication",
+    "pluralName": "publications",
+    "displayName": "Publication",
+    "description": "Publicações científicas do e-Controls (Journal, Conference, Thesis, Software) conforme blueprint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 400,
+      "description": "Título completo da publicação"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "publicationType": {
+      "type": "enumeration",
+      "enum": [
+        "Journal Article",
+        "Conference Paper",
+        "Book",
+        "Book Chapter",
+        "Thesis - PhD",
+        "Thesis - Masters",
+        "Technical Report",
+        "Software/Tool"
+      ],
+      "required": true,
+      "description": "Tipo de publicação - Seção 3 do blueprint página 6"
+    },
+    "authorsText": {
+      "type": "text",
+      "required": true,
+      "description": "Lista completa de autores (texto formatado)"
+    },
+    "year": {
+      "type": "integer",
+      "required": true,
+      "min": 1950,
+      "max": 2100,
+      "description": "Ano de publicação"
+    },
+    "month": {
+      "type": "integer",
+      "min": 1,
+      "max": 12,
+      "description": "Mês de publicação"
+    },
+    "abstract": {
+      "type": "richtext",
+      "description": "Abstract (colapsável/expansível) - Estrutura padrão blueprint"
+    },
+    "journalName": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Nome do periódico (para Journal Article)"
+    },
+    "conferenceName": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Nome da conferência (para Conference Paper)"
+    },
+    "bookTitle": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Título do livro (para Book Chapter)"
+    },
+    "volume": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Volume"
+    },
+    "issue": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Número/Issue"
+    },
+    "pages": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Páginas"
+    },
+    "publisher": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Editora"
+    },
+    "doi": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "DOI (link clicável) - Estrutura padrão blueprint"
+    },
+    "issnIsbn": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "ISSN ou ISBN"
+    },
+    "keywords": {
+      "type": "json",
+      "description": "Array de keywords/tags - Estrutura padrão blueprint"
+    },
+    "citationCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Número de citações (se disponível) - Estrutura padrão blueprint"
+    },
+    "qualis": {
+      "type": "enumeration",
+      "enum": ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C", "N/A"],
+      "description": "Classificação Qualis CAPES"
+    },
+    "impactFactor": {
+      "type": "decimal",
+      "description": "Fator de impacto do periódico"
+    },
+    "quartile": {
+      "type": "enumeration",
+      "enum": ["Q1", "Q2", "Q3", "Q4", "N/A"],
+      "description": "Quartil do periódico (para indicar publicações em periódicos Q1)"
+    },
+    "pdfUrl": {
+      "type": "string",
+      "description": "Link para PDF (se disponível/permitido) - Estrutura padrão blueprint"
+    },
+    "pdfFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["files"],
+      "description": "Arquivo PDF (upload local)"
+    },
+    "externalUrl": {
+      "type": "string",
+      "description": "Link externo (website do periódico, DOI resolver, etc)"
+    },
+    "repositoryUrl": {
+      "type": "string",
+      "description": "Link para repositório (GitHub, arXiv, etc)"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem de capa ou figura destacada"
+    },
+    "citationBibtex": {
+      "type": "text",
+      "description": "Citação formatada em BibTeX - Botão 'Cite this' do blueprint"
+    },
+    "citationApa": {
+      "type": "text",
+      "description": "Citação formatada em APA"
+    },
+    "citationAbnt": {
+      "type": "text",
+      "description": "Citação formatada em ABNT"
+    },
+    "publicationStatus": {
+      "type": "enumeration",
+      "enum": ["Published", "Accepted", "Submitted", "In Press"],
+      "default": "Published",
+      "description": "Status da publicação"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Publicação em destaque"
+    },
+    "isOpenAccess": {
+      "type": "boolean",
+      "default": false,
+      "description": "Open Access"
+    },
+    "awardReceived": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Nome do prêmio recebido (ex: Best Paper Award SBAI 2019)"
+    },
+    "datasetUrl": {
+      "type": "string",
+      "description": "Link para dataset relacionado"
+    },
+    "videoUrl": {
+      "type": "string",
+      "description": "Link para vídeo de apresentação (YouTube, Vimeo)"
+    },
+    "supplementaryMaterials": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["files"],
+      "description": "Materiais suplementares"
+    },
+    "viewCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Contador de visualizações"
+    },
+    "downloadCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Contador de downloads do PDF"
+    },
+    "researchLine": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::research-line.research-line",
+      "inversedBy": "relatedPublications",
+      "description": "Linha(s) de pesquisa relacionada(s) - Estrutura padrão blueprint"
+    },
+    "relatedProject": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "relatedPublications",
+      "description": "Projeto relacionado"
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::faculty-member.faculty-member",
+      "mappedBy": "publications",
+      "description": "Autores que são membros do e-Controls (nomes destacados em negrito)"
+    },
+    "relatedNews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-item.news-item",
+      "mappedBy": "relatedPublications"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "Configurações de SEO específicas desta publicação"
+    }
+  }
+}

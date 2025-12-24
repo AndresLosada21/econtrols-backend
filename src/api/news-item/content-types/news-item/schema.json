@@ -1,0 +1,143 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_items",
+  "info": {
+    "singularName": "news-item",
+    "pluralName": "news-items",
+    "displayName": "News",
+    "description": "Notícias e eventos do e-Controls conforme blueprint Seção 7"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300,
+      "description": "Título da notícia"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "publishDate": {
+      "type": "datetime",
+      "required": true,
+      "description": "Data de publicação - Estrutura padrão blueprint"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Publicações",
+        "Projetos",
+        "Eventos",
+        "Prêmios e Distinções",
+        "Defesas de Tese/Dissertação",
+        "Novas Parcerias",
+        "Financiamento",
+        "Mídia/Imprensa",
+        "Geral"
+      ],
+      "required": true,
+      "description": "Categoria/tag - Seção 3 do blueprint página 7"
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 400,
+      "description": "Resumo/preview (2-3 linhas) - Seção 2 estrutura individual"
+    },
+    "content": {
+      "type": "richtext",
+      "required": true,
+      "description": "Conteúdo completo da notícia"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem de capa - Seção 2 estrutura individual"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "videos"],
+      "description": "Galeria de imagens/vídeos"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Notícia em destaque (aparece em Seção 1 - Featured News)"
+    },
+    "isPinned": {
+      "type": "boolean",
+      "default": false,
+      "description": "Fixar no topo da listagem"
+    },
+    "externalUrl": {
+      "type": "string",
+      "description": "Link externo (se aplicável)"
+    },
+    "eventDate": {
+      "type": "date",
+      "description": "Data do evento (para categoria Eventos)"
+    },
+    "tags": {
+      "type": "json",
+      "description": "Array de tags adicionais para busca"
+    },
+    "viewCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Contador de visualizações"
+    },
+    "readingTime": {
+      "type": "integer",
+      "default": 0,
+      "description": "Tempo estimado de leitura em minutos (calculado automaticamente)"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faculty-member.faculty-member",
+      "inversedBy": "newsAsAuthor",
+      "description": "Autor da notícia (membro do grupo)"
+    },
+    "relatedMembers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::faculty-member.faculty-member",
+      "mappedBy": "newsAsMentioned",
+      "description": "Membros mencionados/relacionados na notícia"
+    },
+    "relatedProjects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "relatedNews",
+      "description": "Projetos relacionados"
+    },
+    "relatedPublications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::publication.publication",
+      "inversedBy": "relatedNews",
+      "description": "Publicações relacionadas"
+    },
+    "relatedNews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::news-item.news-item",
+      "description": "Notícias relacionadas (para recomendação)"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "Configurações de SEO específicas desta notícia"
+    }
+  }
+}

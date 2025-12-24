@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_social_links",
+  "info": {
+    "displayName": "Social Link",
+    "description": "Link para rede social ou plataforma externa"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "LinkedIn",
+        "Twitter",
+        "Facebook",
+        "Instagram",
+        "YouTube",
+        "GitHub",
+        "ResearchGate",
+        "Google Scholar",
+        "ORCID",
+        "Lattes",
+        "Website",
+        "Outro"
+      ],
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "maxLength": 500,
+      "description": "URL completo"
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Rótulo customizado (opcional)"
+    }
+  }
+}

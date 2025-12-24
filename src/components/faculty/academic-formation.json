@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_faculty_academic_formations",
+  "info": {
+    "displayName": "Academic Formation",
+    "description": "Formação acadêmica (graduação, mestrado, doutorado, etc)"
+  },
+  "options": {},
+  "attributes": {
+    "degree": {
+      "type": "enumeration",
+      "enum": [
+        "Graduação",
+        "Especialização",
+        "Mestrado",
+        "Doutorado",
+        "Pós-Doutorado",
+        "Livre-Docência"
+      ],
+      "required": true
+    },
+    "field": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Área/Campo de estudo (ex: Engenharia Elétrica)"
+    },
+    "institution": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Instituição (ex: UFMG, UFAM)"
+    },
+    "year": {
+      "type": "integer",
+      "required": true,
+      "min": 1950,
+      "max": 2100,
+      "description": "Ano de conclusão"
+    },
+    "details": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Detalhes adicionais (ex: Laboratório D!FCOM, Orientador, etc)"
+    }
+  }
+}

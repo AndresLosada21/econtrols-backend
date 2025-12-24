@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_research_subtopics",
+  "info": {
+    "displayName": "Research Subtopic",
+    "description": "Subtópico de uma linha de pesquisa"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Título do subtópico"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição breve do subtópico"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    }
+  }
+}

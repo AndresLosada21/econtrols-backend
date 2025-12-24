@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_layout_menu_links",
+  "info": {
+    "displayName": "Menu Link",
+    "description": "Link de navegação para o menu principal"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "description": "Texto do link (ex: 'Quem Somos', 'People', 'Team')"
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "URL do link (ex: '/about', '/research', '/people')"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição no menu"
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indica se o link abre em nova aba"
+    },
+    "icon": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Nome do ícone (opcional, para usar com biblioteca de ícones)"
+    }
+  }
+}

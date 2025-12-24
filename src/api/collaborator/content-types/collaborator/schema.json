@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collaborators",
+  "info": {
+    "singularName": "collaborator",
+    "pluralName": "collaborators",
+    "displayName": "Collaborator",
+    "description": "Colaboradores externos (nacionais e internacionais) do e-Controls conforme blueprint Seção 5.2 e 5.3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome completo do colaborador (ex: Prof. Dr. Vicenç Puig)"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "fullName"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Foto do colaborador"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Título acadêmico/profissional"
+    },
+    "position": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Cargo/posição"
+    },
+    "institution": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::partner.partner",
+      "inversedBy": "collaborators",
+      "description": "Instituição de origem - Tabela blueprint seções 5.2 e 5.3"
+    },
+    "collaborationType": {
+      "type": "enumeration",
+      "enum": ["Internacional", "Nacional"],
+      "required": true,
+      "description": "Tipo de colaborador - Define se aparece em Seção 2 ou 3"
+    },
+    "researchArea": {
+      "type": "text",
+      "description": "Área de pesquisa/especialização - Tabela blueprint"
+    },
+    "collaborationDescription": {
+      "type": "richtext",
+      "description": "Descrição da colaboração com o e-Controls"
+    },
+    "email": {
+      "type": "email",
+      "description": "E-mail de contato"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "description": "Website pessoal"
+    },
+    "googleScholarUrl": {
+      "type": "string",
+      "description": "Google Scholar"
+    },
+    "lattesUrl": {
+      "type": "string",
+      "description": "Currículo Lattes (para colaboradores nacionais)"
+    },
+    "orcidUrl": {
+      "type": "string",
+      "description": "ORCID"
+    },
+    "researchGateUrl": {
+      "type": "string",
+      "description": "ResearchGate"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Colaboração ativa"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    },
+    "jointPublications": {
+      "type": "json",
+      "description": "Publicações conjuntas (array de referências ou IDs)"
+    },
+    "jointProjects": {
+      "type": "json",
+      "description": "Projetos conjuntos (array de referências ou IDs)"
+    }
+  }
+}

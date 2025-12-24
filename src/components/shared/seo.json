@@ -1,0 +1,75 @@
+{
+  "collectionName": "components_shared_seo",
+  "info": {
+    "displayName": "SEO",
+    "description": "Metadados para SEO e compartilhamento em redes sociais"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 60,
+      "description": "Título da página para SEO (máx 60 caracteres)"
+    },
+    "metaDescription": {
+      "type": "text",
+      "required": true,
+      "maxLength": 160,
+      "description": "Descrição da página para SEO (máx 160 caracteres)"
+    },
+    "keywords": {
+      "type": "text",
+      "description": "Palavras-chave separadas por vírgula"
+    },
+    "metaRobots": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Instruções para robôs de busca (ex: 'index, follow')"
+    },
+    "canonicalURL": {
+      "type": "string",
+      "description": "URL canônica da página"
+    },
+    "ogTitle": {
+      "type": "string",
+      "maxLength": 60,
+      "description": "Título para Open Graph (Facebook, WhatsApp)"
+    },
+    "ogDescription": {
+      "type": "text",
+      "maxLength": 160,
+      "description": "Descrição para Open Graph"
+    },
+    "ogImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem de compartilhamento (1200x630px recomendado)"
+    },
+    "twitterCard": {
+      "type": "enumeration",
+      "enum": ["summary", "summary_large_image", "app", "player"],
+      "default": "summary_large_image",
+      "description": "Tipo de card do Twitter"
+    },
+    "twitterTitle": {
+      "type": "string",
+      "maxLength": 60,
+      "description": "Título para Twitter Card"
+    },
+    "twitterDescription": {
+      "type": "text",
+      "maxLength": 160,
+      "description": "Descrição para Twitter Card"
+    },
+    "twitterImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem para Twitter Card"
+    }
+  }
+}

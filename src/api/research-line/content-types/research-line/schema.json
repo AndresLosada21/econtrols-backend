@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research_lines",
+  "info": {
+    "singularName": "research-line",
+    "pluralName": "research-lines",
+    "displayName": "Research Line",
+    "description": "Linhas de pesquisa do e-Controls conforme blueprint (8 áreas principais)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Título da linha de pesquisa (ex: Teoria de Controle Avançado)"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "shortDescription": {
+      "type": "text",
+      "maxLength": 300,
+      "description": "Descrição curta (2-3 sentenças) para grid/lista - Seção 2.0.2 do blueprint"
+    },
+    "fullDescription": {
+      "type": "richtext",
+      "description": "Descrição detalhada da linha (2-3 parágrafos) - Subpágina individual"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem destacada (placeholder para 'Figura' do blueprint)"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Ícone representativo para grid"
+    },
+    "researchTopics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "research.subtopic",
+      "description": "Subtópicos de pesquisa da linha"
+    },
+    "practicalApplications": {
+      "type": "richtext",
+      "description": "Aplicações práticas da linha de pesquisa"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indica se a linha está ativa"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição (1-8 para as principais)"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["Principal", "Secundária", "Emergente"],
+      "default": "Principal",
+      "description": "Categoria da linha de pesquisa"
+    },
+    "keywords": {
+      "type": "json",
+      "description": "Array de palavras-chave para busca e filtros"
+    },
+    "colorTheme": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Código de cor hexadecimal para tematização (opcional)"
+    },
+    "facultyMembers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::faculty-member.faculty-member",
+      "mappedBy": "researchLines",
+      "description": "Pesquisadores envolvidos - Subpágina individual"
+    },
+    "relatedProjects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "researchLine",
+      "description": "Projetos relacionados - Subpágina individual"
+    },
+    "relatedPublications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::publication.publication",
+      "mappedBy": "researchLine",
+      "description": "Publicações relacionadas (filtrado por tag) - Subpágina individual"
+    },
+    "relatedSoftwareTools": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::software-tool.software-tool",
+      "inversedBy": "researchLines",
+      "description": "Ferramentas desenvolvidas relacionadas"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "Configurações de SEO específicas desta linha de pesquisa"
+    }
+  }
+}

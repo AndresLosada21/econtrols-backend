@@ -1,0 +1,129 @@
+{
+  "kind": "collectionType",
+  "collectionName": "partners",
+  "info": {
+    "singularName": "partner",
+    "pluralName": "partners",
+    "displayName": "Partner",
+    "description": "Parceiros do e-Controls (International, National, Industrial, Funding Agencies) conforme blueprint Seção 5"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300,
+      "description": "Nome da instituição/empresa parceira"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "partnerType": {
+      "type": "enumeration",
+      "enum": [
+        "International University",
+        "National University",
+        "Industrial Partner",
+        "Research Center",
+        "Funding Agency",
+        "Government",
+        "Other"
+      ],
+      "required": true,
+      "description": "Tipo de parceiro - Define em qual seção aparece (Seção 2, 3, 4, 6 do blueprint página 5)"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo da instituição/empresa"
+    },
+    "country": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "País (para parceiros internacionais e nacionais)"
+    },
+    "state": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Estado (para parceiros nacionais)"
+    },
+    "city": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Cidade"
+    },
+    "description": {
+      "type": "richtext",
+      "description": "Descrição da parceria"
+    },
+    "collaborationType": {
+      "type": "enumeration",
+      "enum": [
+        "Pesquisa Conjunta",
+        "Intercâmbio Acadêmico",
+        "Desenvolvimento de Software",
+        "P&D Industrial",
+        "Financiamento",
+        "Cotutela",
+        "Outros"
+      ],
+      "description": "Tipo de colaboração - Seção individual de cada parceiro"
+    },
+    "collaborationArea": {
+      "type": "text",
+      "description": "Área de colaboração específica"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "description": "Link para instituição - Seção individual"
+    },
+    "startDate": {
+      "type": "date",
+      "description": "Início da parceria"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Parceria ativa"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição dentro da categoria"
+    },
+    "collaborators": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::collaborator.collaborator",
+      "mappedBy": "institution",
+      "description": "Colaboradores individuais desta instituição - Seção 2.X do blueprint"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "relatedPartners",
+      "description": "Projetos conjuntos - Seção individual"
+    },
+    "jointPublications": {
+      "type": "json",
+      "description": "Array de publicações conjuntas (pode ser referência ou texto) - Seção individual"
+    },
+    "fundedProjects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.funded-project",
+      "description": "Projetos financiados (para Funding Agencies) - Seção 6.X do blueprint"
+    },
+    "supportType": {
+      "type": "json",
+      "description": "Tipo de apoio (para Funding Agencies). Ex: ['Bolsas de pesquisa', 'Projetos estaduais']"
+    }
+  }
+}

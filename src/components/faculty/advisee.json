@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_faculty_advisees",
+  "info": {
+    "displayName": "Advisee (Orientando)",
+    "description": "Orientando de pós-graduação ou graduação"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome completo do orientando"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Doutorado",
+        "Mestrado",
+        "Iniciação Científica",
+        "TCC"
+      ],
+      "required": true,
+      "description": "Nível acadêmico"
+    },
+    "topic": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Tema de pesquisa (para orientandos em andamento)"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 400,
+      "description": "Título da tese/dissertação (para concluídos)"
+    },
+    "startYear": {
+      "type": "integer",
+      "min": 2000,
+      "max": 2100,
+      "description": "Ano de início (para em andamento)"
+    },
+    "year": {
+      "type": "integer",
+      "min": 2000,
+      "max": 2100,
+      "description": "Ano de defesa/conclusão (para concluídos)"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Em andamento",
+        "Concluído"
+      ],
+      "default": "Em andamento"
+    }
+  }
+}

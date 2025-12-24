@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alumni_members",
+  "info": {
+    "singularName": "alumnus",
+    "pluralName": "alumni",
+    "displayName": "Alumni",
+    "description": "Egressos do e-Controls (PhD, Mestrado, IC) conforme blueprint Seção 3.2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome completo - Seção 2, 3, 4 do blueprint página 3.2"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "fullName"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Foto"
+    },
+    "degreeLevel": {
+      "type": "enumeration",
+      "enum": ["PhD", "Mestrado", "Iniciação Científica/TCC"],
+      "required": true,
+      "description": "Nível do título obtido - Define seção 2, 3 ou 4"
+    },
+    "thesisTitle": {
+      "type": "string",
+      "maxLength": 400,
+      "description": "Título da tese/dissertação/TCC"
+    },
+    "advisor": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Orientador(es)"
+    },
+    "defenseYear": {
+      "type": "integer",
+      "required": true,
+      "min": 2000,
+      "max": 2100,
+      "description": "Ano de defesa"
+    },
+    "currentPosition": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Posição atual (universidade/empresa)"
+    },
+    "currentInstitution": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Instituição atual"
+    },
+    "researchTopic": {
+      "type": "text",
+      "description": "Tema de pesquisa/projeto"
+    },
+    "lattesUrl": {
+      "type": "string",
+      "description": "Link para Lattes (se disponível)"
+    },
+    "linkedinUrl": {
+      "type": "string",
+      "description": "Link para LinkedIn (se disponível)"
+    },
+    "email": {
+      "type": "email",
+      "description": "E-mail de contato (opcional)"
+    },
+    "publicationsCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Número de publicações durante o período no grupo"
+    },
+    "currentSector": {
+      "type": "enumeration",
+      "enum": ["Academia", "Indústria", "Governo", "Outro", "Desconhecido"],
+      "description": "Setor atual de atuação - Para Seção 6 estatísticas"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição (mais recentes primeiro)"
+    }
+  }
+}

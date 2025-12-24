@@ -1,0 +1,147 @@
+{
+  "kind": "collectionType",
+  "collectionName": "software_tools",
+  "info": {
+    "singularName": "software-tool",
+    "pluralName": "software-tools",
+    "displayName": "Software Tool",
+    "description": "Ferramentas de software desenvolvidas pelo e-Controls conforme blueprint Seção 6 página 6"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200,
+      "description": "Nome da ferramenta (ex: ESBMC, DSVerifier)"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "description": "Descrição completa da ferramenta - Estrutura padrão"
+    },
+    "shortDescription": {
+      "type": "text",
+      "maxLength": 300,
+      "description": "Descrição curta para listagem"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo/ícone da ferramenta"
+    },
+    "screenshots": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Screenshots da interface"
+    },
+    "developers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "software.developer",
+      "description": "Desenvolvedores e instituições envolvidas"
+    },
+    "releaseYear": {
+      "type": "integer",
+      "min": 2000,
+      "max": 2100,
+      "description": "Ano de lançamento/versão inicial"
+    },
+    "currentVersion": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Versão atual (ex: v7.4)"
+    },
+    "license": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Tipo de licença (MIT, GPL, Apache, etc) - Estrutura padrão"
+    },
+    "mainApplication": {
+      "type": "text",
+      "description": "Aplicação principal da ferramenta - Estrutura padrão"
+    },
+    "repositoryUrl": {
+      "type": "string",
+      "required": false,
+      "description": "Link para repositório (GitHub, GitLab, etc) - Estrutura padrão"
+    },
+    "documentationUrl": {
+      "type": "string",
+      "description": "Link para documentação - Estrutura padrão"
+    },
+    "downloadUrl": {
+      "type": "string",
+      "description": "Link para download"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "description": "Website oficial da ferramenta"
+    },
+    "downloadCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "Número de downloads/usuários (se disponível) - Estrutura padrão"
+    },
+    "starCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "GitHub stars (se aplicável)"
+    },
+    "forkCount": {
+      "type": "integer",
+      "default": 0,
+      "description": "GitHub forks (se aplicável)"
+    },
+    "programmingLanguages": {
+      "type": "json",
+      "description": "Array de linguagens de programação usadas. Ex: ['C++', 'Python']"
+    },
+    "platforms": {
+      "type": "json",
+      "description": "Array de plataformas suportadas. Ex: ['Linux', 'Windows', 'macOS']"
+    },
+    "tags": {
+      "type": "json",
+      "description": "Tags para categorização. Ex: ['Verification', 'Model Checking']"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Ferramenta em destaque"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    },
+    "researchLines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::research-line.research-line",
+      "mappedBy": "relatedSoftwareTools",
+      "description": "Linhas de pesquisa relacionadas - Estrutura padrão"
+    },
+    "relatedPublications": {
+      "type": "json",
+      "description": "Array de publicações relacionadas - Estrutura padrão. Pode ser IDs ou referências textuais"
+    },
+    "developedInCollaborationWith": {
+      "type": "component",
+      "repeatable": true,
+      "component": "software.collaboration",
+      "description": "Instituições colaboradoras no desenvolvimento"
+    }
+  }
+}
