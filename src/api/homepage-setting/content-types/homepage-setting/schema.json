@@ -46,6 +46,13 @@
       "default": "2015",
       "description": "Ano de fundação"
     },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo do grupo (exibido no header e footer)"
+    },
     "keyMetrics": {
       "type": "component",
       "repeatable": true,

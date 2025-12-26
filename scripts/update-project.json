@@ -1,0 +1,34 @@
+{
+  "data": {
+    "title": "Desenvolvimento de Controladores Inteligentes para Processos Industriais",
+    "slug": "controladores-inteligentes-processos-industriais",
+    "shortDescription": "Projeto de desenvolvimento de controladores baseados em inteligência computacional para otimização de processos industriais.",
+    "summary": "Este projeto visa desenvolver controladores inteligentes utilizando técnicas de inteligência computacional para otimizar processos industriais em diversos setores.",
+    "fullDescription": "O projeto desenvolve controladores inteligentes baseados em inteligência computacional, incluindo redes neurais artificiais, sistemas fuzzy e algoritmos genéticos, aplicados à otimização de processos industriais. Serão desenvolvidas soluções para indústrias de transformação, química e de energia, com foco em eficiência energética e redução de custos operacionais.",
+    "status": "Em Andamento",
+    "fundingAgency": "CNPq",
+    "fundingAmount": 500000,
+    "processNumber": "123456/2023-0",
+    "startDate": "2023-01-01",
+    "endDate": "2025-12-31",
+    "duration": "36 meses",
+    "progressPercentage": 65,
+    "currentStatus": "Em desenvolvimento dos algoritmos de controle inteligente",
+    "objectives": "Desenvolver controladores inteligentes para processos industriais, implementar técnicas de otimização e validar em ambientes industriais.",
+    "methodology": "Desenvolvimento teórico, simulação computacional, implementação em laboratório e testes em ambiente industrial.",
+    "expectedResults": "Controladores inteligentes implementados, publicações científicas, patentes e transferência de tecnologia.",
+    "achievedResults": "Algoritmos desenvolvidos, protótipos testados em laboratório, 5 artigos publicados.",
+    "impactLegacy": "Contribuição para a indústria 4.0 brasileira, redução de custos industriais e aumento da competitividade.",
+    "keywords": [
+      "Controle Inteligente",
+      "Processos Industriais",
+      "Otimização",
+      "Redes Neurais",
+      "Algoritmos Genéticos"
+    ],
+    "websiteUrl": "https://econtrols.ufam.edu.br/projetos/controladores-inteligentes",
+    "repositoryUrl": "https://github.com/econtrols/controladores-inteligentes",
+    "showOnHomepage": true,
+    "displayOrder": 5
+  }
+}

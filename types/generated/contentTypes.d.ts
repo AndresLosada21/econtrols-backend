@@ -796,6 +796,7 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     keyMetrics: Attribute.Component<'shared.key-metric', true>;
     location: Attribute.String &
       Attribute.DefaultTo<'Manaus, Amazonas, Brasil'>;
+    logo: Attribute.Media<'images'>;
     partnerLogos: Attribute.Media<'images', true>;
     showOnHomepage: Attribute.JSON;
     tagline: Attribute.String &
