@@ -1,0 +1,91 @@
+{
+  "kind": "singleType",
+  "collectionName": "research_page_setting",
+  "info": {
+    "singularName": "research-page-setting",
+    "pluralName": "research-page-settings",
+    "displayName": "Research Page Settings",
+    "description": "Configurações e conteúdo específico da página de Pesquisa"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "default": "Linhas de Pesquisa",
+      "description": "Título H1 da página"
+    },
+    "pageDescription": {
+      "type": "text",
+      "description": "Texto introdutório da página de pesquisa"
+    },
+    "principalSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para Linhas Principais"
+    },
+    "secondarySection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para Linhas Secundárias"
+    },
+    "emergentSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para Linhas Emergentes"
+    },
+    "ctaSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para seção CTA"
+    },
+    "ctaButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.cta-button",
+      "description": "Botão de call-to-action"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "SEO específico da página de pesquisa"
+    },
+    "statsLabelTotal": {
+      "type": "string",
+      "default": "linhas de pesquisa",
+      "description": "Label para total de linhas"
+    },
+    "statsLabelPrincipal": {
+      "type": "string",
+      "default": "principais",
+      "description": "Label para linhas principais"
+    },
+    "statsLabelSecondary": {
+      "type": "string",
+      "default": "secundárias",
+      "description": "Label para linhas secundárias"
+    },
+    "statsLabelEmergent": {
+      "type": "string",
+      "default": "emergentes",
+      "description": "Label para linhas emergentes"
+    },
+    "cardDetailText": {
+      "type": "string",
+      "default": "ver detalhes",
+      "description": "Texto do link nos cards de pesquisa"
+    },
+    "emptyStateMessage": {
+      "type": "string",
+      "default": "Conecte ao Strapi para ver as linhas de pesquisa.",
+      "description": "Mensagem quando não há linhas de pesquisa"
+    }
+  }
+}

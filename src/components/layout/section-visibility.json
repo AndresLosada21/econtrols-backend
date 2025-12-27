@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_layout_section_visibilities",
+  "info": {
+    "displayName": "Section Visibility",
+    "description": "Controle de visibilidade das seções da homepage"
+  },
+  "attributes": {
+    "showHero": {
+      "type": "boolean",
+      "default": true
+    },
+    "showAbout": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMetrics": {
+      "type": "boolean",
+      "default": true
+    },
+    "showResearch": {
+      "type": "boolean",
+      "default": true
+    },
+    "showProjects": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTeam": {
+      "type": "boolean",
+      "default": true
+    },
+    "showAlumni": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPartners": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPublications": {
+      "type": "boolean",
+      "default": true
+    },
+    "showNews": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

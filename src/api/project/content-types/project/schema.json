@@ -68,10 +68,12 @@
       "allowedTypes": ["images", "videos"],
       "description": "Galeria de imagens/vídeos"
     },
-    "fundingAgency": {
-      "type": "string",
-      "maxLength": 200,
-      "description": "Financiador (CNPq, FAPEAM, Instituto Serrapilheira, etc)"
+    "fundingAgencies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::funding-agency.funding-agency",
+      "inversedBy": "projects",
+      "description": "Agências de fomento que financiam este projeto (pode ter múltiplas)"
     },
     "fundingAmount": {
       "type": "decimal",

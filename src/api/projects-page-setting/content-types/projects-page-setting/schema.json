@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "projects_page_setting",
+  "info": {
+    "singularName": "projects-page-setting",
+    "pluralName": "projects-page-settings",
+    "displayName": "Projects Page Settings",
+    "description": "Configurações e conteúdo específico da página de Projetos"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "default": "Projetos",
+      "description": "Título H1 da página"
+    },
+    "pageDescription": {
+      "type": "text",
+      "description": "Texto introdutório da página de projetos"
+    },
+    "activeSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para Projetos Ativos"
+    },
+    "plannedSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para Projetos Planejados"
+    },
+    "finishedSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "description": "Header para Projetos Concluídos"
+    },
+    "agenciesTitle": {
+      "type": "string",
+      "default": "Agências de Fomento",
+      "description": "Título da seção de agências de fomento"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "SEO específico da página de projetos"
+    },
+    "emptyStateMessage": {
+      "type": "string",
+      "default": "Conecte ao Strapi para ver os projetos.",
+      "description": "Mensagem quando não há projetos"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "collectionName": "components_people_detail_labels",
+  "info": {
+    "displayName": "Detail Labels",
+    "description": "Labels e textos completos para página de detalhes de membros"
+  },
+  "options": {},
+  "attributes": {
+    "backButtonText": {
+      "type": "string",
+      "default": "voltar para equipe",
+      "description": "Texto do botão de voltar"
+    },
+    "bioLabel": {
+      "type": "string",
+      "default": "/// biografia",
+      "description": "Label da seção de biografia"
+    },
+    "bioTitle": {
+      "type": "string",
+      "default": "Sobre",
+      "description": "Título da seção de biografia"
+    },
+    "contactsLabel": {
+      "type": "string",
+      "default": "/// contatos",
+      "description": "Label da seção de contatos"
+    },
+    "contactsTitle": {
+      "type": "string",
+      "default": "Informações de Contato",
+      "description": "Título da seção de contatos"
+    },
+    "metricsLabel": {
+      "type": "string",
+      "default": "/// métricas",
+      "description": "Label da seção de métricas acadêmicas"
+    },
+    "metricsTitle": {
+      "type": "string",
+      "default": "Métricas de Impacto",
+      "description": "Título da seção de métricas"
+    },
+    "hIndexTooltip": {
+      "type": "string",
+      "default": "Índice H: mede produtividade e impacto das publicações",
+      "description": "Tooltip explicativo do índice H"
+    },
+    "citationsLabel": {
+      "type": "string",
+      "default": "Citações",
+      "description": "Label de citações"
+    },
+    "publicationsCountLabel": {
+      "type": "string",
+      "default": "Publicações",
+      "description": "Label de total de publicações"
+    },
+    "educationLabel": {
+      "type": "string",
+      "default": "/// formação",
+      "description": "Label da seção de formação acadêmica"
+    },
+    "educationTitle": {
+      "type": "string",
+      "default": "Formação Acadêmica",
+      "description": "Título da seção de formação"
+    },
+    "researchLinesLabel": {
+      "type": "string",
+      "default": "/// atuação",
+      "description": "Label da seção de linhas de pesquisa"
+    },
+    "researchLinesTitle": {
+      "type": "string",
+      "default": "Linhas de Pesquisa",
+      "description": "Título da seção de linhas de pesquisa"
+    },
+    "projectsLabel": {
+      "type": "string",
+      "default": "/// projetos",
+      "description": "Label da seção de projetos"
+    },
+    "projectsTitle": {
+      "type": "string",
+      "default": "Projetos de Pesquisa",
+      "description": "Título da seção de projetos"
+    },
+    "coordinatedProjectsLabel": {
+      "type": "string",
+      "default": "Coordenados",
+      "description": "Label de projetos coordenados"
+    },
+    "participatingProjectsLabel": {
+      "type": "string",
+      "default": "Participante",
+      "description": "Label de projetos participantes"
+    },
+    "publicationsLabel": {
+      "type": "string",
+      "default": "/// publicações",
+      "description": "Label da seção de publicações"
+    },
+    "publicationsTitle": {
+      "type": "string",
+      "default": "Produção Científica",
+      "description": "Título da seção de publicações"
+    },
+    "publicationsEmptyState": {
+      "type": "string",
+      "default": "Nenhuma publicação cadastrada.",
+      "description": "Mensagem quando não há publicações"
+    },
+    "adviseesLabel": {
+      "type": "string",
+      "default": "/// orientações",
+      "description": "Label da seção de orientandos"
+    },
+    "adviseesTitle": {
+      "type": "string",
+      "default": "Orientações",
+      "description": "Título da seção de orientações"
+    },
+    "currentAdviseesLabel": {
+      "type": "string",
+      "default": "Em Andamento",
+      "description": "Label de orientações em andamento"
+    },
+    "completedAdviseesLabel": {
+      "type": "string",
+      "default": "Concluídas",
+      "description": "Label de orientações concluídas"
+    },
+    "expectedDefenseLabel": {
+      "type": "string",
+      "default": "Defesa prevista",
+      "description": "Label de defesa prevista"
+    },
+    "currentPositionLabel": {
+      "type": "string",
+      "default": "Posição atual",
+      "description": "Label de posição atual do egresso"
+    },
+    "teachingLabel": {
+      "type": "string",
+      "default": "/// ensino",
+      "description": "Label da seção de ensino"
+    },
+    "teachingTitle": {
+      "type": "string",
+      "default": "Disciplinas Ministradas",
+      "description": "Título da seção de ensino"
+    },
+    "graduateCoursesLabel": {
+      "type": "string",
+      "default": "Graduação",
+      "description": "Label de disciplinas de graduação"
+    },
+    "postgraduateCoursesLabel": {
+      "type": "string",
+      "default": "Pós-Graduação",
+      "description": "Label de disciplinas de pós-graduação"
+    },
+    "awardsLabel": {
+      "type": "string",
+      "default": "/// prêmios",
+      "description": "Label da seção de prêmios"
+    },
+    "awardsTitle": {
+      "type": "string",
+      "default": "Prêmios e Distinções",
+      "description": "Título da seção de prêmios"
+    },
+    "issuerLabel": {
+      "type": "string",
+      "default": "Instituição",
+      "description": "Label de instituição emissora do prêmio"
+    },
+    "institutionalLabel": {
+      "type": "string",
+      "default": "/// posições",
+      "description": "Label da seção de posições institucionais"
+    },
+    "institutionalTitle": {
+      "type": "string",
+      "default": "Posições Institucionais",
+      "description": "Título da seção de posições institucionais"
+    },
+    "collaborationsLabel": {
+      "type": "string",
+      "default": "/// colaborações",
+      "description": "Label da seção de colaborações internacionais"
+    },
+    "collaborationsTitle": {
+      "type": "string",
+      "default": "Colaborações Internacionais",
+      "description": "Título da seção de colaborações"
+    },
+    "viewProfileLabel": {
+      "type": "string",
+      "default": "Ver perfil completo",
+      "description": "Texto do link para perfil externo"
+    },
+    "websiteLabel": {
+      "type": "string",
+      "default": "Website",
+      "description": "Label de website pessoal"
+    }
+  }
+}

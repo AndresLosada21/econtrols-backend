@@ -19,6 +19,7 @@ async function setPermissions() {
     const contentTypes = [
       'api::tag.tag',
       'api::partner.partner',
+      'api::funding-agency.funding-agency',
       'api::research-line.research-line',
       'api::faculty-member.faculty-member',
       'api::dashboard-metric.dashboard-metric',
@@ -27,8 +28,15 @@ async function setPermissions() {
       'api::project.project',
       'api::publication.publication',
       'api::alumnus.alumnus',
-      'api::news-item.news-item',
-      'api::homepage-setting.homepage-setting'
+      'api::news-item.news-item'
+    ];
+
+    // Single types that need find permission
+    const singleTypes = [
+      'api::homepage-setting.homepage-setting',
+      'api::research-page-setting.research-page-setting',
+      'api::projects-page-setting.projects-page-setting',
+      'api::people-page-setting.people-page-setting'
     ];
 
     const permissions = {};
@@ -51,11 +59,39 @@ async function setPermissions() {
     // ALTERNATIVE: Use the entity service to create 'plugin::users-permissions.permission' entries.
     // This is safer and standard in v4.
     
+    // Process collection types (find + findOne)
     for (const uid of contentTypes) {
       const controllers = uid.split('.')[0]; // e.g., api::tag
       const controllerName = uid.split('.')[1]; // e.g., tag
       
       const actions = ['find', 'findOne'];
+      
+      for (const action of actions) {
+        // Check if permission exists
+        const existing = await strapi.query('plugin::users-permissions.permission').findOne({
+            where: {
+                action: `${uid}.${action}`,
+                role: publicRole.id
+            }
+        });
+
+        if (!existing) {
+            await strapi.query('plugin::users-permissions.permission').create({
+                data: {
+                    action: `${uid}.${action}`,
+                    role: publicRole.id,
+                }
+            });
+            console.log(`   + Enabled ${uid}.${action}`);
+        } else {
+            console.log(`   = Already enabled ${uid}.${action}`);
+        }
+      }
+    }
+
+    // Process single types (find and update for seeding)
+    for (const uid of singleTypes) {
+      const actions = ['find', 'update'];
       
       for (const action of actions) {
         // Check if permission exists

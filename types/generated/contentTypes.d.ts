@@ -676,7 +676,17 @@ export interface ApiFacultyMemberFacultyMember extends Schema.CollectionType {
     > &
       Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
+    showAdvisees: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showAwards: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showBiography: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showCollaborations: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showEducation: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showInstitutionalPositions: Attribute.Boolean & Attribute.DefaultTo<true>;
     showOnHomepage: Attribute.Boolean & Attribute.DefaultTo<false>;
+    showProjects: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showPublications: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showResearchLines: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showTeaching: Attribute.Boolean & Attribute.DefaultTo<true>;
     slug: Attribute.UID<'api::faculty-member.faculty-member', 'fullName'>;
     specializationAreas: Attribute.JSON;
     teachingGraduate: Attribute.JSON;
@@ -765,6 +775,68 @@ export interface ApiFooterSettingFooterSetting extends Schema.SingleType {
   };
 }
 
+export interface ApiFundingAgencyFundingAgency extends Schema.CollectionType {
+  collectionName: 'funding_agencies';
+  info: {
+    description: 'Ag\u00EAncias de fomento \u00E0 pesquisa (CNPq, FAPEAM, CAPES, etc.)';
+    displayName: 'Funding Agency';
+    pluralName: 'funding-agencies';
+    singularName: 'funding-agency';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    acronym: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    country: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }> &
+      Attribute.DefaultTo<'Brasil'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::funding-agency.funding-agency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    description: Attribute.Text;
+    displayOrder: Attribute.Integer & Attribute.DefaultTo<0>;
+    fullName: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
+    isActive: Attribute.Boolean & Attribute.DefaultTo<true>;
+    logo: Attribute.Media<'images'>;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    projects: Attribute.Relation<
+      'api::funding-agency.funding-agency',
+      'manyToMany',
+      'api::project.project'
+    >;
+    type: Attribute.Enumeration<
+      ['Federal', 'Estadual', 'Municipal', 'Internacional', 'Privada', 'Mista']
+    > &
+      Attribute.DefaultTo<'Federal'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::funding-agency.funding-agency',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    websiteUrl: Attribute.String;
+  };
+}
+
 export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
   collectionName: 'homepage_setting';
   info: {
@@ -777,6 +849,9 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     draftAndPublish: false;
   };
   attributes: {
+    aboutTitle: Attribute.String &
+      Attribute.DefaultTo<'Refer\u00EAncia em Controle de Sistemas'>;
+    alumniSection: Attribute.Component<'layout.section-header'>;
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::homepage-setting.homepage-setting',
@@ -790,6 +865,7 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     foundingYear: Attribute.String & Attribute.DefaultTo<'2015'>;
     groupName: Attribute.String &
       Attribute.DefaultTo<'e-Controls - Grupo de Estudos em Controle de Sistemas'>;
+    heroBackground: Attribute.Media<'images'>;
     institutionalAffiliation: Attribute.String &
       Attribute.DefaultTo<'Universidade Federal do Amazonas (UFAM)'>;
     introductionText: Attribute.RichText;
@@ -797,10 +873,15 @@ export interface ApiHomepageSettingHomepageSetting extends Schema.SingleType {
     location: Attribute.String &
       Attribute.DefaultTo<'Manaus, Amazonas, Brasil'>;
     logo: Attribute.Media<'images'>;
+    newsSection: Attribute.Component<'layout.section-header'>;
     partnerLogos: Attribute.Media<'images', true>;
-    showOnHomepage: Attribute.JSON;
+    partnersSection: Attribute.Component<'layout.section-header'>;
+    projectsSection: Attribute.Component<'layout.section-header'>;
+    publicationsSection: Attribute.Component<'layout.section-header'>;
+    sectionVisibility: Attribute.Component<'layout.section-visibility'>;
     tagline: Attribute.String &
       Attribute.DefaultTo<'Excel\u00EAncia em Controle de Sistemas na Amaz\u00F4nia'>;
+    teamSection: Attribute.Component<'layout.section-header'>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::homepage-setting.homepage-setting',
@@ -1038,6 +1119,45 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
   };
 }
 
+export interface ApiPeoplePageSettingPeoplePageSetting
+  extends Schema.SingleType {
+  collectionName: 'people_page_setting';
+  info: {
+    description: 'Configura\u00E7\u00F5es centralizadas da p\u00E1gina People (listagem e detalhes)';
+    displayName: 'People Page Setting';
+    pluralName: 'people-page-settings';
+    singularName: 'people-page-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    alumniSection: Attribute.Component<'layout.section-header'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::people-page-setting.people-page-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    detailLabels: Attribute.Component<'people.detail-labels'>;
+    leadersSection: Attribute.Component<'layout.section-header'>;
+    pageDescription: Attribute.Text &
+      Attribute.DefaultTo<'Conhe\u00E7a os pesquisadores, professores e colaboradores que integram o grupo e-Controls, dedicados \u00E0 excel\u00EAncia em pesquisa e inova\u00E7\u00E3o em sistemas de controle.'>;
+    pageTitle: Attribute.String & Attribute.DefaultTo<'Nossa Equipe'>;
+    postdocsSection: Attribute.Component<'layout.section-header'>;
+    researchersSection: Attribute.Component<'layout.section-header'>;
+    seo: Attribute.Component<'shared.seo'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::people-page-setting.people-page-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -1072,10 +1192,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
     endDate: Attribute.Date;
     expectedResults: Attribute.RichText;
     featuredImage: Attribute.Media<'images'>;
-    fundingAgency: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 200;
-      }>;
+    fundingAgencies: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::funding-agency.funding-agency'
+    >;
     fundingAmount: Attribute.Decimal;
     gallery: Attribute.Media<'images' | 'videos', true>;
     impactLegacy: Attribute.RichText;
@@ -1148,6 +1269,46 @@ export interface ApiProjectProject extends Schema.CollectionType {
     > &
       Attribute.Private;
     websiteUrl: Attribute.String;
+  };
+}
+
+export interface ApiProjectsPageSettingProjectsPageSetting
+  extends Schema.SingleType {
+  collectionName: 'projects_page_setting';
+  info: {
+    description: 'Configura\u00E7\u00F5es e conte\u00FAdo espec\u00EDfico da p\u00E1gina de Projetos';
+    displayName: 'Projects Page Settings';
+    pluralName: 'projects-page-settings';
+    singularName: 'projects-page-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    activeSection: Attribute.Component<'layout.section-header'>;
+    agenciesTitle: Attribute.String &
+      Attribute.DefaultTo<'Ag\u00EAncias de Fomento'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::projects-page-setting.projects-page-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    emptyStateMessage: Attribute.String &
+      Attribute.DefaultTo<'Conecte ao Strapi para ver os projetos.'>;
+    finishedSection: Attribute.Component<'layout.section-header'>;
+    pageDescription: Attribute.Text;
+    pageTitle: Attribute.String & Attribute.DefaultTo<'Projetos'>;
+    plannedSection: Attribute.Component<'layout.section-header'>;
+    seo: Attribute.Component<'shared.seo'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::projects-page-setting.projects-page-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1376,6 +1537,53 @@ export interface ApiResearchLineResearchLine extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::research-line.research-line',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiResearchPageSettingResearchPageSetting
+  extends Schema.SingleType {
+  collectionName: 'research_page_setting';
+  info: {
+    description: 'Configura\u00E7\u00F5es e conte\u00FAdo espec\u00EDfico da p\u00E1gina de Pesquisa';
+    displayName: 'Research Page Settings';
+    pluralName: 'research-page-settings';
+    singularName: 'research-page-setting';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    cardDetailText: Attribute.String & Attribute.DefaultTo<'ver detalhes'>;
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::research-page-setting.research-page-setting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    ctaButton: Attribute.Component<'layout.cta-button'>;
+    ctaSection: Attribute.Component<'layout.section-header'>;
+    emergentSection: Attribute.Component<'layout.section-header'>;
+    emptyStateMessage: Attribute.String &
+      Attribute.DefaultTo<'Conecte ao Strapi para ver as linhas de pesquisa.'>;
+    pageDescription: Attribute.Text;
+    pageTitle: Attribute.String & Attribute.DefaultTo<'Linhas de Pesquisa'>;
+    principalSection: Attribute.Component<'layout.section-header'>;
+    secondarySection: Attribute.Component<'layout.section-header'>;
+    seo: Attribute.Component<'shared.seo'>;
+    statsLabelEmergent: Attribute.String & Attribute.DefaultTo<'emergentes'>;
+    statsLabelPrincipal: Attribute.String & Attribute.DefaultTo<'principais'>;
+    statsLabelSecondary: Attribute.String &
+      Attribute.DefaultTo<'secund\u00E1rias'>;
+    statsLabelTotal: Attribute.String &
+      Attribute.DefaultTo<'linhas de pesquisa'>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::research-page-setting.research-page-setting',
       'oneToOne',
       'admin::user'
     > &
@@ -1962,13 +2170,17 @@ declare module '@strapi/types' {
       'api::dashboard-metric.dashboard-metric': ApiDashboardMetricDashboardMetric;
       'api::faculty-member.faculty-member': ApiFacultyMemberFacultyMember;
       'api::footer-setting.footer-setting': ApiFooterSettingFooterSetting;
+      'api::funding-agency.funding-agency': ApiFundingAgencyFundingAgency;
       'api::homepage-setting.homepage-setting': ApiHomepageSettingHomepageSetting;
       'api::navbar-setting.navbar-setting': ApiNavbarSettingNavbarSetting;
       'api::news-item.news-item': ApiNewsItemNewsItem;
       'api::partner.partner': ApiPartnerPartner;
+      'api::people-page-setting.people-page-setting': ApiPeoplePageSettingPeoplePageSetting;
       'api::project.project': ApiProjectProject;
+      'api::projects-page-setting.projects-page-setting': ApiProjectsPageSettingProjectsPageSetting;
       'api::publication.publication': ApiPublicationPublication;
       'api::research-line.research-line': ApiResearchLineResearchLine;
+      'api::research-page-setting.research-page-setting': ApiResearchPageSettingResearchPageSetting;
       'api::software-tool.software-tool': ApiSoftwareToolSoftwareTool;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;

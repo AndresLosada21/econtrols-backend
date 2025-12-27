@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_section_headers",
+  "info": {
+    "displayName": "Section Header",
+    "description": "Título e descrição para cabeçalhos de seção"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "description": "Texto pequeno (ex: /// projetos)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Título principal (ex: Pesquisa & Desenvolvimento)"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição curta abaixo do título"
+    }
+  }
+}

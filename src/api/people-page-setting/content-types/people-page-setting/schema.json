@@ -1,0 +1,67 @@
+{
+  "kind": "singleType",
+  "collectionName": "people_page_setting",
+  "info": {
+    "singularName": "people-page-setting",
+    "pluralName": "people-page-settings",
+    "displayName": "People Page Setting",
+    "description": "Configurações centralizadas da página People (listagem e detalhes)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "default": "Nossa Equipe",
+      "description": "Título principal da página de listagem"
+    },
+    "pageDescription": {
+      "type": "text",
+      "default": "Conheça os pesquisadores, professores e colaboradores que integram o grupo e-Controls, dedicados à excelência em pesquisa e inovação em sistemas de controle.",
+      "description": "Descrição introdutória da página"
+    },
+    "leadersSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "required": false,
+      "description": "Configuração da seção de Líderes"
+    },
+    "researchersSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "required": false,
+      "description": "Configuração da seção de Pesquisadores"
+    },
+    "postdocsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "required": false,
+      "description": "Configuração da seção de Pós-Doutorandos"
+    },
+    "alumniSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header",
+      "required": false,
+      "description": "Configuração da seção de Ex-Membros/Alumni"
+    },
+    "detailLabels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "people.detail-labels",
+      "required": false,
+      "description": "Labels para página de detalhes de membro"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "description": "Configurações de SEO da página People"
+    }
+  }
+}

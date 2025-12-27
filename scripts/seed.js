@@ -1455,17 +1455,65 @@ async function seedHomepageSettings(strapi) {
     department: "Faculdade de Tecnologia",
     location: "Manaus, Amazonas, Brasil",
     introductionText:
-      "O e-Controls conduz pesquisas de estado da arte em controle e supervisão de processos, sistemas elétricos de potência e sistemas robóticos. O grupo foca no desenvolvimento de novas técnicas de projeto sistemas de controle e monitoramento, que prezem pela confiabilidade e eficiência. Dentro de suas linhas de pesquisa o grupo busca incentivar e fomentar atividades de pesquisa, desenvolvimento e inovação em diferentes campos da engenharia de controle.",
+      "O <strong>e-Controls</strong> é um grupo de pesquisa da UFAM que se destaca como referência nacional em teoria de controle, sistemas tolerantes a falhas e verificação formal de software.\n\nCom colaborações internacionais estabelecidas com Oxford, Manchester e Cambridge, atuamos na fronteira do conhecimento aplicando soluções para a indústria amazônica.",
     foundingYear: "2017",
     mainContactEmail: "econtrols@ufam.edu.br",
     phone: "+55 92 3305-4695",
     address: "Av. Rodrigo Otávio, 1200 - Petrópolis, Manaus-AM, CEP 69067-005",
-    keyMetrics: {
-      publications: 85,
-      citations: 1247,
-      mastersFormed: 12,
-      internationalPartnerships: 8,
+    aboutTitle: "Referência em Controle de Sistemas da Região Norte",
+    projectsSection: {
+      label: "/// projetos",
+      title: "Pesquisa & Desenvolvimento",
+      description:
+        "Projetos de pesquisa financiados por agências nacionais e internacionais.",
     },
+    teamSection: {
+      label: "/// equipe",
+      title: "Liderança Acadêmica",
+      description:
+        "Pesquisadores com formação em universidades de excelência mundial.",
+    },
+    alumniSection: {
+      label: "/// egressos",
+      title: "Alumni",
+      description:
+        "Nossos egressos atuam em universidades, indústrias e centros de pesquisa ao redor do mundo.",
+    },
+    partnersSection: {
+      label: "/// parceiros",
+      title: "Rede de Colaboração Internacional",
+      description:
+        "Colaboramos com universidades e centros de pesquisa de excelência ao redor do mundo.",
+    },
+    publicationsSection: {
+      label: "/// publicações",
+      title: "Produção Científica",
+      description:
+        "Artigos publicados em periódicos e conferências de alto impacto.",
+    },
+    newsSection: {
+      label: "/// notícias",
+      title: "Últimas Atualizações",
+      description: "",
+    },
+    sectionVisibility: {
+      showHero: true,
+      showAbout: true,
+      showMetrics: true,
+      showResearch: true,
+      showProjects: true,
+      showTeam: true,
+      showAlumni: true,
+      showPartners: true,
+      showPublications: true,
+      showNews: true,
+    },
+    keyMetrics: [
+      { label: "publicações", value: "201+", order: 1 },
+      { label: "citações", value: "450+", order: 2 },
+      { label: "mestres formados", value: "25+", order: 3 },
+      { label: "parcerias internac.", value: "6+", order: 4 },
+    ],
     socialLinks: {
       linkedin: "https://linkedin.com/company/e-controls-ufam",
       github: "https://github.com/econtrols-ufam",

@@ -66,15 +66,59 @@
       "allowedTypes": ["images"],
       "description": "Logos das principais universidades parceiras"
     },
-    "showOnHomepage": {
-      "type": "json",
-      "description": "Configuração de quais seções exibir na homepage"
+    "sectionVisibility": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-visibility",
+      "description": "Controle quais seções aparecem na página inicial"
     },
     "defaultSeo": {
       "type": "component",
       "repeatable": false,
       "component": "shared.seo",
       "description": "SEO padrão do site (usado como fallback)"
+    },
+    "heroBackground": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Imagem de fundo da seção Hero"
+    },
+    "aboutTitle": {
+      "type": "string",
+      "default": "Referência em Controle de Sistemas",
+      "description": "Título principal da seção Sobre"
+    },
+    "projectsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header"
+    },
+    "teamSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header"
+    },
+    "alumniSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header"
+    },
+    "partnersSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header"
+    },
+    "publicationsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header"
+    },
+    "newsSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.section-header"
     }
   }
 }

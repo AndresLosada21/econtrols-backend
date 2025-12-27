@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "funding_agencies",
+  "info": {
+    "singularName": "funding-agency",
+    "pluralName": "funding-agencies",
+    "displayName": "Funding Agency",
+    "description": "Agências de fomento à pesquisa (CNPq, FAPEAM, CAPES, etc.)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 200,
+      "description": "Nome oficial da agência (ex: CNPq, FAPEAM)"
+    },
+    "fullName": {
+      "type": "string",
+      "maxLength": 300,
+      "description": "Nome completo (ex: Conselho Nacional de Desenvolvimento Científico e Tecnológico)"
+    },
+    "acronym": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "Sigla ou acrônimo oficial"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Federal",
+        "Estadual",
+        "Municipal",
+        "Internacional",
+        "Privada",
+        "Mista"
+      ],
+      "default": "Federal",
+      "description": "Tipo de agência"
+    },
+    "country": {
+      "type": "string",
+      "default": "Brasil",
+      "maxLength": 100,
+      "description": "País de origem"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "description": "Website oficial da agência"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Logo da agência"
+    },
+    "description": {
+      "type": "text",
+      "description": "Descrição breve da agência"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Se a agência está ativa"
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0,
+      "description": "Ordem de exibição"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "fundingAgencies",
+      "description": "Projetos financiados por esta agência"
+    }
+  }
+}

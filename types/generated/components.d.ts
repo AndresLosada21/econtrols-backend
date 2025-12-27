@@ -226,6 +226,121 @@ export interface LayoutMenuLink extends Schema.Component {
   };
 }
 
+export interface LayoutSectionHeader extends Schema.Component {
+  collectionName: 'components_layout_section_headers';
+  info: {
+    description: 'T\u00EDtulo e descri\u00E7\u00E3o para cabe\u00E7alhos de se\u00E7\u00E3o';
+    displayName: 'Section Header';
+  };
+  attributes: {
+    description: Attribute.Text;
+    label: Attribute.String;
+    title: Attribute.String;
+  };
+}
+
+export interface LayoutSectionVisibility extends Schema.Component {
+  collectionName: 'components_layout_section_visibilities';
+  info: {
+    description: 'Controle de visibilidade das se\u00E7\u00F5es da homepage';
+    displayName: 'Section Visibility';
+  };
+  attributes: {
+    showAbout: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showAlumni: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showHero: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showMetrics: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showNews: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showPartners: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showProjects: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showPublications: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showResearch: Attribute.Boolean & Attribute.DefaultTo<true>;
+    showTeam: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface PeopleDetailLabels extends Schema.Component {
+  collectionName: 'components_people_detail_labels';
+  info: {
+    description: 'Labels e textos completos para p\u00E1gina de detalhes de membros';
+    displayName: 'Detail Labels';
+  };
+  attributes: {
+    adviseesLabel: Attribute.String &
+      Attribute.DefaultTo<'/// orienta\u00E7\u00F5es'>;
+    adviseesTitle: Attribute.String &
+      Attribute.DefaultTo<'Orienta\u00E7\u00F5es'>;
+    awardsLabel: Attribute.String & Attribute.DefaultTo<'/// pr\u00EAmios'>;
+    awardsTitle: Attribute.String &
+      Attribute.DefaultTo<'Pr\u00EAmios e Distin\u00E7\u00F5es'>;
+    backButtonText: Attribute.String &
+      Attribute.DefaultTo<'voltar para equipe'>;
+    bioLabel: Attribute.String & Attribute.DefaultTo<'/// biografia'>;
+    bioTitle: Attribute.String & Attribute.DefaultTo<'Sobre'>;
+    citationsLabel: Attribute.String &
+      Attribute.DefaultTo<'Cita\u00E7\u00F5es'>;
+    collaborationsLabel: Attribute.String &
+      Attribute.DefaultTo<'/// colabora\u00E7\u00F5es'>;
+    collaborationsTitle: Attribute.String &
+      Attribute.DefaultTo<'Colabora\u00E7\u00F5es Internacionais'>;
+    completedAdviseesLabel: Attribute.String &
+      Attribute.DefaultTo<'Conclu\u00EDdas'>;
+    contactsLabel: Attribute.String & Attribute.DefaultTo<'/// contatos'>;
+    contactsTitle: Attribute.String &
+      Attribute.DefaultTo<'Informa\u00E7\u00F5es de Contato'>;
+    coordinatedProjectsLabel: Attribute.String &
+      Attribute.DefaultTo<'Coordenados'>;
+    currentAdviseesLabel: Attribute.String &
+      Attribute.DefaultTo<'Em Andamento'>;
+    currentPositionLabel: Attribute.String &
+      Attribute.DefaultTo<'Posi\u00E7\u00E3o atual'>;
+    educationLabel: Attribute.String &
+      Attribute.DefaultTo<'/// forma\u00E7\u00E3o'>;
+    educationTitle: Attribute.String &
+      Attribute.DefaultTo<'Forma\u00E7\u00E3o Acad\u00EAmica'>;
+    expectedDefenseLabel: Attribute.String &
+      Attribute.DefaultTo<'Defesa prevista'>;
+    graduateCoursesLabel: Attribute.String &
+      Attribute.DefaultTo<'Gradua\u00E7\u00E3o'>;
+    hIndexTooltip: Attribute.String &
+      Attribute.DefaultTo<'\u00CDndice H: mede produtividade e impacto das publica\u00E7\u00F5es'>;
+    institutionalLabel: Attribute.String &
+      Attribute.DefaultTo<'/// posi\u00E7\u00F5es'>;
+    institutionalTitle: Attribute.String &
+      Attribute.DefaultTo<'Posi\u00E7\u00F5es Institucionais'>;
+    issuerLabel: Attribute.String &
+      Attribute.DefaultTo<'Institui\u00E7\u00E3o'>;
+    metricsLabel: Attribute.String & Attribute.DefaultTo<'/// m\u00E9tricas'>;
+    metricsTitle: Attribute.String &
+      Attribute.DefaultTo<'M\u00E9tricas de Impacto'>;
+    participatingProjectsLabel: Attribute.String &
+      Attribute.DefaultTo<'Participante'>;
+    postgraduateCoursesLabel: Attribute.String &
+      Attribute.DefaultTo<'P\u00F3s-Gradua\u00E7\u00E3o'>;
+    projectsLabel: Attribute.String & Attribute.DefaultTo<'/// projetos'>;
+    projectsTitle: Attribute.String &
+      Attribute.DefaultTo<'Projetos de Pesquisa'>;
+    publicationsCountLabel: Attribute.String &
+      Attribute.DefaultTo<'Publica\u00E7\u00F5es'>;
+    publicationsEmptyState: Attribute.String &
+      Attribute.DefaultTo<'Nenhuma publica\u00E7\u00E3o cadastrada.'>;
+    publicationsLabel: Attribute.String &
+      Attribute.DefaultTo<'/// publica\u00E7\u00F5es'>;
+    publicationsTitle: Attribute.String &
+      Attribute.DefaultTo<'Produ\u00E7\u00E3o Cient\u00EDfica'>;
+    researchLinesLabel: Attribute.String &
+      Attribute.DefaultTo<'/// atua\u00E7\u00E3o'>;
+    researchLinesTitle: Attribute.String &
+      Attribute.DefaultTo<'Linhas de Pesquisa'>;
+    teachingLabel: Attribute.String & Attribute.DefaultTo<'/// ensino'>;
+    teachingTitle: Attribute.String &
+      Attribute.DefaultTo<'Disciplinas Ministradas'>;
+    viewProfileLabel: Attribute.String &
+      Attribute.DefaultTo<'Ver perfil completo'>;
+    websiteLabel: Attribute.String & Attribute.DefaultTo<'Website'>;
+  };
+}
+
 export interface ResearchSubtopic extends Schema.Component {
   collectionName: 'components_research_subtopics';
   info: {
@@ -436,6 +551,9 @@ declare module '@strapi/types' {
       'layout.cta-button': LayoutCtaButton;
       'layout.footer-menu-column': LayoutFooterMenuColumn;
       'layout.menu-link': LayoutMenuLink;
+      'layout.section-header': LayoutSectionHeader;
+      'layout.section-visibility': LayoutSectionVisibility;
+      'people.detail-labels': PeopleDetailLabels;
       'research.subtopic': ResearchSubtopic;
       'shared.funded-project': SharedFundedProject;
       'shared.key-metric': SharedKeyMetric;

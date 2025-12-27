@@ -167,6 +167,56 @@
       "default": false,
       "description": "Exibir na homepage"
     },
+    "showBiography": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de biografia na página de detalhes"
+    },
+    "showEducation": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de formação acadêmica na página de detalhes"
+    },
+    "showResearchLines": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de linhas de pesquisa na página de detalhes"
+    },
+    "showProjects": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de projetos na página de detalhes"
+    },
+    "showPublications": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de publicações na página de detalhes"
+    },
+    "showAdvisees": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de orientandos na página de detalhes"
+    },
+    "showTeaching": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de ensino/disciplinas na página de detalhes"
+    },
+    "showAwards": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de prêmios e distinções na página de detalhes"
+    },
+    "showInstitutionalPositions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de posições institucionais na página de detalhes"
+    },
+    "showCollaborations": {
+      "type": "boolean",
+      "default": true,
+      "description": "Exibir seção de colaborações internacionais na página de detalhes"
+    },
     "researchLines": {
       "type": "relation",
       "relation": "manyToMany",
